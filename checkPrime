@@ -1,0 +1,44 @@
+#if the array has prime numbers, it removes it
+
+
+#include <stdio.h>
+
+//function to check number is prime or not
+//function will return 1 if number is prime
+
+
+int main()
+{
+	int i, j, k; //loop counters
+	//declaring array with prime and not prime numbers
+	int arr[]={1,2,3,5,69,55,4,6,7,15};
+	//calculate length of the array
+	int len = 10;
+	
+
+	int temp[10];
+	int count = 0;
+	for(int i = 0; i < len; i++)
+	{
+		for(int j = 2; j < (arr[i] / 2) + 1; j++)
+		{
+			if(arr[i] % j == 0)
+			{
+				for(k = i; k < len - 1; k++)
+				{
+					arr[k] = arr[k + 1];
+				}
+				len--;
+				temp[count] = arr[i];
+				count++;
+				i--;
+				break;
+			}
+			
+		}
+	}
+	for(int i = 0; i < len; i++)
+	{
+		printf("%d\n", arr[i]);
+	}
+}
