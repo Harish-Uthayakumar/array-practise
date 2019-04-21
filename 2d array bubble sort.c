@@ -32,15 +32,17 @@ void bubble_sort()
 
 	for(int y = 0; y < 4; y++)
 	{
-		for( int h = 0; h < 3; h ++)
+		
+
+		for(int step = 0; step < 4 - 1 ; ++step)
 		{
-			for(int j = h; j < 4; j++)
+			for(int i = 0; i < 4 - step - 1; i++)
 			{
-				if(a[h]> a[j])
+				if(a[y][i] > a[y][i+1])
 				{
-					int temp = a[y][h];
-					a[y][h] = a[y][j];
-					a[y][j] = temp;
+					int temp = a[y][i];
+					a[y][i] = a[y][i+1];
+					a[y][i+1] = temp;
 				}
 			}
 		}
@@ -48,7 +50,7 @@ void bubble_sort()
 }
  
 
- void print_array()
+void print_array()
  {
  	for(int i = 0; i < 4; i++)
  	{
@@ -56,5 +58,6 @@ void bubble_sort()
  		 {
  		 	printf("%d", a[i][y]);
  		 }
+ 		 printf("\n");
  	}
  }
